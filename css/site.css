@@ -2,7 +2,7 @@ input[type=text]{
     padding: .4em;
 }
 
-label{
+label#title, label#price, label#rating{
     width: 50%;
     display: inline-block;
     text-align: right;
