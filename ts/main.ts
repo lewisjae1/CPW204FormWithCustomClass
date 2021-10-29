@@ -52,7 +52,25 @@ function getVideoGame():VideoGame{
 
 function displayGame(myGame:VideoGame):void{
     // TODO: Display video game below the form
+    let displayDiv = getByID("display");
 
+    let gameHeading = document.createElement("h2");
+    gameHeading.innerText = myGame.title;
+
+    let gameInfo = document.createElement("p");
+    let notOnlineDisplay = "";
+    if(myGame.isOnlineOnly){
+        notOnlineDisplay = "This is online only game.";
+    }
+    else{
+        notOnlineDisplay = "You can come buy a physical copy."
+    }
+
+    gameInfo.innerText = `${myGame.title} has a rating of ${myGame.rating}.
+                    It costs $${myGame.price.toFixed(2)}. ${notOnlineDisplay}`;
+
+    displayDiv.appendChild(gameHeading);
+    displayDiv.appendChild(gameInfo);
 }
 
 function isAllDataValid(){

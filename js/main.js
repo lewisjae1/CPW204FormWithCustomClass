@@ -30,6 +30,20 @@ function getVideoGame() {
     return game;
 }
 function displayGame(myGame) {
+    var displayDiv = getByID("display");
+    var gameHeading = document.createElement("h2");
+    gameHeading.innerText = myGame.title;
+    var gameInfo = document.createElement("p");
+    var notOnlineDisplay = "";
+    if (myGame.isOnlineOnly) {
+        notOnlineDisplay = "This is online only game.";
+    }
+    else {
+        notOnlineDisplay = "You can come buy a physical copy.";
+    }
+    gameInfo.innerText = myGame.title + " has a rating of " + myGame.rating + ".\n                    It costs $" + myGame.price.toFixed(2) + ". " + notOnlineDisplay;
+    displayDiv.appendChild(gameHeading);
+    displayDiv.appendChild(gameInfo);
 }
 function isAllDataValid() {
     return true;
